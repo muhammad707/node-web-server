@@ -2,6 +2,7 @@ const fs = require('fs');
 const express = require('express'); //library that helps to build web app
 const hbs = require('hbs'); // dynamic template engine
 var app = express();
+var port = process.env.PORT || 3000;
 
 app.set('view engine', 'hbs'); // setting view engine type 
 
@@ -47,4 +48,6 @@ app.get('/bad', (req, res) => {
 		errorMessage: 'Bad request'
 	})
 });
-app.listen(3000);
+app.listen(port, () => {
+	console.log(`Server is running at port ${port}`);
+});
